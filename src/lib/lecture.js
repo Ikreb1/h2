@@ -1,5 +1,5 @@
-import { generateImage, generateTitle } from "./converter";
-import { empty } from "./helpers";
+import { generateImage } from "./converter";
+import { empty, createElement, makeAttribute } from "./helpers";
 
 export default class Lecture {
     constructor() {
@@ -25,20 +25,90 @@ export default class Lecture {
             });
     }
 
+    addToPage(el) {
+        this.container.appendChild(el);
+    }
+
     renderData(data) {
-        const titleElement = generateTitle(data.title, data.slug);
-        this.container.appendChild(titleElement);
+        const categoryElement = createElement("h3", data.category);
+        this.addToPage(categoryElement);
+
+        const titleElement = createElement("h1", data.title);
+        this.addToPage(titleElement);
 
         const imageElement = generateImage(data.image);
-        this.container.appendChild(imageElement);
+        const imageClass = makeAttribute("class", "heading__image");
+        imageElement.setAttributeNode(imageClass);
+        this.addToPage(imageElement);
+
+        this.renderContent(data.content);
         console.log(data);
-        console.log(data.slug);
         console.log(data.content[1].data);
     }
 
-    renderItem(item) {
-        const imageElement = generateImage(item.thumbnail);
-        this.container.appendChild(imageElement);
+    renderImage(path, caption) {
+        const imageEle = generateImage(path);
+        const altAtt = makeAttribute("alt", caption);
+        imageEle.setAttributeNode(altAtt);
+        this.addToPage(imageEle);
+    }
+
+    renderVideo(video) {
+        const videoElement = createElement("iframe");
+
+        const srcAtt = makeAttribute("src", video);
+        const frameborderAtt = makeAttribute("frameborder", "0");
+        const allowfullscreenAtt = makeAttribute("allowfullscreen", "0");
+
+        videoElement.setAttributeNode(srcAtt);
+        videoElement.setAttributeNode(frameborderAtt);
+        videoElement.setAttributeNode(allowfullscreenAtt);
+
+        this.addToPage(videoElement);
+    }
+
+    renderText(text) {
+        const textElement = createElement("p");
+        textElement.innerHTML = text;
+        this.addToPage(textElement);
+    }
+
+    renderQuote(quote, author) {
+
+    }
+
+    renderHeading(heading) {
+
+    }
+
+    renderList(list) {
+        
+    }
+
+    renderCode(code) {
+
+    }
+
+    renderContent(content) {
+        for(let i=0;i<content.length;i++) {
+            if(content[i].type === "youtube") {
+                this.renderVideo(content[i].data);
+            } else if (content[i].type === "text") {
+                this.renderText(content[i].data);
+            } else if (content[i].type === "quote") {
+                this.renderQuote(content[i].data, content[i].attribute);
+            } else if (content[i].type === "image") {
+                this.renderImage(content[i].data, content[i].caption);
+            } else if (content[i].type === "heading") {
+                this.renderHeading(content[i].data);
+            } else if (content[i].type === "list") {
+                this.renderList(content[i].data);
+            } else if (content[i].type === "code") {
+                this.renderCode(content[i].data);
+            } else {
+
+            }
+        }
     }
 
     load(){

@@ -11,3 +11,9 @@ export function createElement(el, text) {
   }
   return element;
 }
+
+export function makeAttribute(attribute, val) {
+  const att = document.createAttribute(attribute);
+  att.value = val;
+  return att;
+}
