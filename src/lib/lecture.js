@@ -1,3 +1,6 @@
+import { generateImage } from "./converter";
+import { empty } from "./helpers";
+
 export default class Lecture {
     constructor() {
         this.container = document.querySelector('.lecture');
@@ -22,10 +25,27 @@ export default class Lecture {
             });
     }
 
+    renderData(data) {
+        data.lectures.map((item) => {
+            this.renderItem(item);
+        });
+    }
+
+    renderItem(item) {
+        const titleElement = generateTitle(item.title, item.slug);
+        this.container.appendChild(titleElement);
+
+        const imageElement = generateImage(item.thumbnail);
+        this.container.appendChild(imageElement);
+    }
+
     load(){
+        empty(this.container);
         const qs = new URLSearchParams(window.location.search);
         const slug = qs.get('slug');
 
-        this.loadLecture(slug).then(data => console.log(data));
+        this.loadLecture(slug)
+            .then((data) => this.renderData(data))
+                .then(data);
     }
 }
