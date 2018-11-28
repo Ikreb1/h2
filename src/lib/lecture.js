@@ -30,7 +30,7 @@ export default class Lecture {
     }
 
     renderData(data) {
-        const headerElement = createElement("header");
+        const headerElement = createElement("div");
         const headerAtt = makeAttribute("class", "header__fyrirlestur");
         headerElement.setAttributeNode(headerAtt);
         
