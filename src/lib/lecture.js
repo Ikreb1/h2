@@ -93,15 +93,22 @@ export default class Lecture {
     }
 
     renderHeading(heading) {
-
+        const headingElement = createElement("h2", heading);
+        this.addToPage(headingElement);
     }
 
     renderList(list) {
-        
+        const listElement = createElement("ul");
+        for(let i=0;i<list.length;i++) {
+            let listItemElement = createElement("li", list[i]);
+            listElement.appendChild(listItemElement);
+        }
+        this.addToPage(listElement);
     }
 
     renderCode(code) {
-
+        const codeElement = createElement("code", code);
+        this.addToPage(codeElement);
     }
 
     renderContent(content) {
