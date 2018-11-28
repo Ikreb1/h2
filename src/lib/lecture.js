@@ -30,16 +30,23 @@ export default class Lecture {
     }
 
     renderData(data) {
+        const headerElement = createElement("header");
+        const headerAtt = makeAttribute("class", "header__fyrirlestur");
+        headerElement.setAttributeNode(headerAtt);
+        
+
         const categoryElement = createElement("h3", data.category);
-        this.addToPage(categoryElement);
+        headerElement.appendChild(categoryElement);
 
         const titleElement = createElement("h1", data.title);
-        this.addToPage(titleElement);
+        headerElement.appendChild(titleElement);
 
         const imageElement = generateImage(data.image);
         const imageClass = makeAttribute("class", "heading__image");
         imageElement.setAttributeNode(imageClass);
-        this.addToPage(imageElement);
+        headerElement.appendChild(imageElement);
+
+        this.addToPage(headerElement);
 
         this.renderContent(data.content);
         console.log(data);
@@ -74,6 +81,14 @@ export default class Lecture {
     }
 
     renderQuote(quote, author) {
+        const quoteElement = createElement("blockquote");
+        const textEle = createElement("p", quote);
+        const footerElement = createElement("footer", author);
+
+        quoteElement.appendChild(textEle);
+        quoteElement.appendChild(textEle);
+
+        this.addToPage(quoteElement);
 
     }
 
