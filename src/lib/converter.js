@@ -23,11 +23,3 @@ export function generateTitle(title, slug){
     }
     return titleElement;
 }
-
-export function generateQuote(){
-    //
-}
-
-export function generateText(){
-    //
-}
