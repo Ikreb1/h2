@@ -11,14 +11,17 @@ export function generateImage(imagePath) {
 }
 
 export function generateTitle(title, slug){
-    const link = document.createElement('a');
-    link.href = `/fyrirlestur.html?slug=${slug}`;
-
     const titleElement = document.createElement('h1');
     titleElement.appendChild(document.createTextNode(title));
+
+    if(slug) {
+    const link = document.createElement('a');
+    link.href = `/fyrirlestur.html?slug=${slug}`;
     
     link.appendChild(titleElement);
     return link;
+    }
+    return titleElement;
 }
 
 export function generateQuote(){

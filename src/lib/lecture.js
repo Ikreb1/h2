@@ -1,4 +1,4 @@
-import { generateImage } from "./converter";
+import { generateImage, generateTitle } from "./converter";
 import { empty } from "./helpers";
 
 export default class Lecture {
@@ -26,15 +26,17 @@ export default class Lecture {
     }
 
     renderData(data) {
-        data.lectures.map((item) => {
-            this.renderItem(item);
-        });
+        const titleElement = generateTitle(data.title, data.slug);
+        this.container.appendChild(titleElement);
+
+        const imageElement = generateImage(data.image);
+        this.container.appendChild(imageElement);
+        console.log(data);
+        console.log(data.slug);
+        console.log(data.content[1].data);
     }
 
     renderItem(item) {
-        const titleElement = generateTitle(item.title, item.slug);
-        this.container.appendChild(titleElement);
-
         const imageElement = generateImage(item.thumbnail);
         this.container.appendChild(imageElement);
     }
@@ -45,7 +47,6 @@ export default class Lecture {
         const slug = qs.get('slug');
 
         this.loadLecture(slug)
-            .then((data) => this.renderData(data))
-                .then(data);
+            .then((data) => this.renderData(data));
     }
 }
