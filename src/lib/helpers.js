@@ -4,8 +4,10 @@ export function empty(element) {
   }
 }
 
-export function insert(element) {
-  const wowser = document.createElement('div');
-  wowser.appendChild(document.createTextNode("this"));
-  element.appendChild(wowser);
+export function createElement(el, text) {
+  const element = document.createElement(el);
+  if (text) {
+    element.appendChild(document.createTextNode(text));
+  }
+  return element;
 }
