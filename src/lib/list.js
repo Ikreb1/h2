@@ -5,6 +5,10 @@ export default class List {
   constructor() {
     this.container = document.querySelector('.list');
     this.url = '../lectures.json';
+    this.filterHTML = document.querySelector('.filter__html');
+    this.filterCSS = document.querySelector('.filter__css');
+    this.filterJavaScript = document.querySelector('.filter__html');
+    this.filter = [filterHTML, filterCSS, this.filterJavaScript];
   }
 
   loadLectures() {
