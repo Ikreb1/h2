@@ -1,4 +1,4 @@
-import { empty } from './helpers';
+import { empty, insert } from './helpers';
 
 export default class List {
   constructor() {
@@ -7,5 +7,6 @@ export default class List {
 
   load() {
     empty(this.container);
+    insert(this.container);
   }
 }
