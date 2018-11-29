@@ -8,7 +8,7 @@ export default class List {
     this.filterHTML = document.querySelector('.filter__html');
     this.filterCSS = document.querySelector('.filter__css');
     this.filterJavaScript = document.querySelector('.filter__html');
-    this.filter = [filterHTML, filterCSS, this.filterJavaScript];
+    this.filter = [this.filterHTML, this.filterCSS, this.filterJavaScript];
   }
 
   loadLectures() {

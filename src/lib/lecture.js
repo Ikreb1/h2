@@ -30,27 +30,23 @@ export default class Lecture {
     }
 
     renderData(data) {
-        const headerElement = createElement("div");
-        const headerAtt = makeAttribute("class", "header__fyrirlestur");
-        headerElement.setAttributeNode(headerAtt);
+        const headerElement = createElement("div", "", "header__fyrirlestur");
+        //const headerAtt = makeAttribute("class", "header__fyrirlestur");
+        //headerElement.setAttributeNode(headerAtt);
         
 
-        const categoryElement = createElement("h3", data.category);
+        const categoryElement = createElement("h3", data.category, "heading__category");
         headerElement.appendChild(categoryElement);
 
-        const titleElement = createElement("h1", data.title);
+        const titleElement = createElement("h1", data.title, "heading__title");
         headerElement.appendChild(titleElement);
 
-        const imageElement = generateImage(data.image);
-        const imageClass = makeAttribute("class", "heading__image");
-        imageElement.setAttributeNode(imageClass);
+        const imageElement = generateImage(data.image, "", "heading__image");
         headerElement.appendChild(imageElement);
 
         this.addToPage(headerElement);
 
         this.renderContent(data.content);
-        console.log(data);
-        console.log(data.content[1].data);
     }
 
     renderImage(path, caption) {
