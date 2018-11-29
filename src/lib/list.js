@@ -28,11 +28,14 @@ export default class List {
   }
 
   renderItem(item){
+    const divContainer = createElement("div", "", "list__item");
     const titleElement = generateTitle(item.title, item.slug);
-    this.container.appendChild(titleElement);
+    divContainer.appendChild(titleElement);
 
     let imageElement = generateImage(item.thumbnail);
-    this.container.appendChild(imageElement);
+    divContainer.appendChild(imageElement);
+    
+    this.container.appendChild(divContainer);
   }
 
   load() {
