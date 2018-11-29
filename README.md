@@ -25,6 +25,14 @@ og seinni skipunin keyrir allan pakkan og heldur hjólunum gangandi.
 index.html skráin er lítil enda notuðum við javascript til að útbúa flest allt html.
 
 ### Javascript
+allar javascript skrárnar eru pakkaðar saman í dist/bundle.js.
+
+index.js checkar hvort maður er á forssíðunni eða fyrirlestri og birtir viðeigandi html.
+list.js teiknar upp htmlið fyrir forsíðuna.
+lecture.js teiknar upp htmlið fyrir fyrirlesturinn sem linkað er frá og sækjir gögnin frá lecture.json og birtir þau.
+helpers.js hjálparföll sem minnka copy paste.
+converter.js er sama og helpers en er aðeins nákvæmar í því sem hann gerir.
+storage.js náðum ekki að klára.
 
 ### CSS
 
@@ -38,6 +46,6 @@ styles.scss pakkar öllu saman og inniheldur nokkar almennar stillingar.
 
 # Hópurinn
 Verkefnið er unnið af
-* Breki Ingibjargarson
+* Breki Ingibjargarson (bri11@hi.is)
 * Halldór Jens (HJV6@hi.is)
-* Pétur
+* Valdimar björnsson (vab19@hi.is)
