@@ -5,10 +5,12 @@ export default class List {
   constructor() {
     this.container = document.querySelector('.list');
     this.url = '../lectures.json';
+
     this.filterHTML = document.querySelector('.filter__html');
     this.filterCSS = document.querySelector('.filter__css');
     this.filterJavaScript = document.querySelector('.filter__html');
     this.filter = [this.filterHTML, this.filterCSS, this.filterJavaScript];
+    console.log(this.filter);
   }
 
   loadLectures() {
@@ -29,8 +31,14 @@ export default class List {
 
   renderItem(item){
     const divContainer = createElement("div","", "list__item");
+    const divInnerContainer = createElement("div", "", "list__overlay");
+
+    const categoryElement = createElement("h3", item.category);
+    divInnerContainer.appendChild(categoryElement);
+
     const titleElement = generateTitle(item.title, item.slug);
-    divContainer.appendChild(titleElement);
+    divInnerContainer.appendChild(titleElement);
+    divContainer.appendChild(divInnerContainer);
 
     let imageElement = generateImage(item.thumbnail);
     divContainer.appendChild(imageElement);
@@ -39,6 +47,7 @@ export default class List {
   }
 
   load() {
+
     empty(this.container);
     this.loadLectures()
       .then((data) => this.renderData(data));
