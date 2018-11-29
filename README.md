@@ -39,5 +39,5 @@ styles.scss pakkar öllu saman og inniheldur nokkar almennar stillingar.
 # Hópurinn
 Verkefnið er unnið af
 * Breki Ingibjargarson
-* Halldór Jens
+* Halldór Jens (HJV6@hi.is)
 * Pétur
