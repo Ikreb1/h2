@@ -30,7 +30,7 @@ export default class List {
   }
 
   renderItem(item, category){
-    if(item.category === category && category) {
+    //if(item.category === category && category) {
     const divContainer = createElement("div","", "list__" + item.category);
     const divInnerContainer = createElement("div", "", "list__overlay");
 
@@ -45,7 +45,7 @@ export default class List {
     divContainer.appendChild(imageElement);
     
     this.container.appendChild(divContainer);
-    }
+    //}
   }
 
   load() {
