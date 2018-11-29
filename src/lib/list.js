@@ -30,7 +30,7 @@ export default class List {
   }
 
   renderItem(item){
-    const divContainer = createElement("div","", "list__item");
+    const divContainer = createElement("div","", "list__" + item.category);
     const divInnerContainer = createElement("div", "", "list__overlay");
 
     const categoryElement = createElement("h3", item.category);

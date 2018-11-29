@@ -1,5 +1,6 @@
 import List from './lib/list';
 import Lecture from './lib/lecture.js';
+import empty from "./lib/helpers";
 
 document.addEventListener('DOMContentLoaded', () => {
   const page = document.querySelector('body');
@@ -15,6 +16,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const list = new List();
     list.load();
     list.filterCSS.addEventListener('click', filterItem);
+    list.filterHTML.addEventListener('click', filterItem);
+    list.filterJavaScript.addEventListener('click', filterItem);
   }
 
 
@@ -22,6 +25,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
 function filterItem(e) {
   const element = e.target;
-  const eleClass = element.getAttribute("class");
+  let eleClass = element.getAttribute("class");
+  eleClass = ".list__" + eleClass.substring(8);
   console.log(document.querySelector(eleClass));
+  
+  let delElement = document.querySelectorAll(eleClass);
+  for(let i=0;i<delElement.length;i++) {
+    while (delElement[i].firstChild) {
+      delElement[i].removeChild(delElement[i].firstChild);
+    }
+  }
 }
