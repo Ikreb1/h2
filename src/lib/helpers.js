@@ -4,13 +4,13 @@ export function empty(element) {
   }
 }
 
-export function createElement(el, text, class) {
+export function createElement(el, text, eleClass) {
   const element = document.createElement(el);
   if (text) {
     element.appendChild(document.createTextNode(text));
   }
-  if(class) {
-    const elementClass = this.makeAttribute("class", class);
+  if(eleClass) {
+    const elementClass = this.makeAttribute("class", eleClass);
     element.setAttributeNode(elementClass);
   }
   return element;

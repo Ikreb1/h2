@@ -31,9 +31,6 @@ export default class Lecture {
 
     renderData(data) {
         const headerElement = createElement("div", "", "header__fyrirlestur");
-        //const headerAtt = makeAttribute("class", "header__fyrirlestur");
-        //headerElement.setAttributeNode(headerAtt);
-        
 
         const categoryElement = createElement("h3", data.category, "heading__category");
         headerElement.appendChild(categoryElement);
@@ -45,7 +42,6 @@ export default class Lecture {
         headerElement.appendChild(imageElement);
 
         this.addToPage(headerElement);
-
         this.renderContent(data.content);
     }
 
