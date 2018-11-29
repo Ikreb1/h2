@@ -71,15 +71,15 @@ export default class Lecture {
     }
 
     renderText(text) {
-        const textElement = createElement("p");
+        const textElement = createElement("p", text, "fyrirlestur__text");
         textElement.innerHTML = text;
         this.addToPage(textElement);
     }
 
     renderQuote(quote, author) {
-        const quoteElement = createElement("blockquote");
-        const textEle = createElement("p", quote);
-        const footerElement = createElement("footer", author);
+        const quoteElement = createElement("blockquote", "", "fyrirlestur__quote");
+        const textEle = createElement("p", quote, "fyirlestur__quote__text");
+        const footerElement = createElement("footer", author, "fyrirlestur__quote__author");
 
         quoteElement.appendChild(textEle);
         quoteElement.appendChild(textEle);
@@ -89,7 +89,7 @@ export default class Lecture {
     }
 
     renderHeading(heading) {
-        const headingElement = createElement("h2", heading);
+        const headingElement = createElement("h2", heading, "fyrirlestur__chapterTitle");
         this.addToPage(headingElement);
     }
 
@@ -103,7 +103,7 @@ export default class Lecture {
     }
 
     renderCode(code) {
-        const codeElement = createElement("code", code);
+        const codeElement = createElement("code", code, "fyrirlestur__code");
         this.addToPage(codeElement);
     }
 
