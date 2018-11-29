@@ -8,7 +8,7 @@ export default class List {
 
     this.filterHTML = document.querySelector('.filter__html');
     this.filterCSS = document.querySelector('.filter__css');
-    this.filterJavaScript = document.querySelector('.filter__html');
+    this.filterJavaScript = document.querySelector('.filter__javascript');
     this.filter = [this.filterHTML, this.filterCSS, this.filterJavaScript];
     console.log(this.filter);
   }

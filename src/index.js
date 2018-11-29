@@ -1,6 +1,5 @@
 import List from './lib/list';
 import Lecture from './lib/lecture.js';
-import empty from "./lib/helpers";
 
 document.addEventListener('DOMContentLoaded', () => {
   const page = document.querySelector('body');
@@ -26,6 +25,7 @@ document.addEventListener('DOMContentLoaded', () => {
 function filterItem(e) {
   const element = e.target;
   let eleClass = element.getAttribute("class");
+  console.log(element);
   eleClass = ".list__" + eleClass.substring(8);
   console.log(document.querySelector(eleClass));
   
