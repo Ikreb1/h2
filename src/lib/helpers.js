@@ -10,7 +10,9 @@ export function createElement(el, text, eleClass) {
     element.appendChild(document.createTextNode(text));
   }
   if(eleClass) {
-    const elementClass = this.makeAttribute("class", eleClass);
+    //const elementClass = this.makeAttribute("class", eleClass);
+    const elementClass = document.createAttribute("class");
+    elementClass.value = eleClass;
     element.setAttributeNode(elementClass);
   }
   return element;

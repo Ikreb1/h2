@@ -28,7 +28,7 @@ export default class List {
   }
 
   renderItem(item){
-    const divContainer = createElement("div", "", "list__item");
+    const divContainer = createElement("div","", "list__item");
     const titleElement = generateTitle(item.title, item.slug);
     divContainer.appendChild(titleElement);
 
